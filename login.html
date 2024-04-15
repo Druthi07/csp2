@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+ background-image:url(background4.jpg);
+ font-family: Arial, sans-serif;
+ margin: 0;
+}
+.background-image {
+    background-image: url('background4.jpg'); /* Replace with the path to your background image */
+    background-size: cover;
+    background-repeat:no-repeat;
+    background-position: center;
+    height: 100vh; /* Adjust the height as needed */
+    overflow: hidden;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    /* text-align: center; */
+    /* border: 2px solid red; */
+    height: 100vh;
+
+}
+.form-container {
+ width: 300px;
+ padding: 16px;
+ background-color:white;
+ margin: 0 auto;
+ margin-top: 100px;
+ box-shadow: 0px 0px 10px 0px grey;
+}
+
+input[type=text], input[type=password] {
+ width: 90%;
+ padding: 15px;
+ margin: 5px 0 22px 0;
+ display: inline-block;
+ border: none;
+ background:white;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+ background-color: #ddd;
+ outline: none;
+}
+
+.btn {
+ background-color:#4d5044;
+ color:black;
+ padding: 14px 20px;
+ margin: 8px 0;
+ border: none;
+ cursor: pointer;
+ width: 100%;
+ opacity: 0.9;
+}
+
+.btn:hover {
+ opacity:1;
+}
+input[type=reset]:hover { opacity:1; } 
+</style>
+</head>
+<body>
+  <div class="background-image">
+    <div class="form-container">
+        <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" id="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+            <button type="button" class="btn" onclick="login()">Login</button>
+            <button type="button" class="btn" onclick="resetForm()">Reset</button>
+        </div>
+        <script>
+            function login() {
+                var username = document.getElementById("uname").value;
+                var password = document.getElementById("psw").value;
+                var usernamePattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                var passwordPattern = /^[a-zA-Z0-9!@#$%^&*()_+{}\[\]:;<>,.?~\\/]{6,}$/;
+  
+                if (usernamePattern.test(username) && passwordPattern.test(password)) {
+                  alert("Login successful!");
+                } else {
+                  alert("Invalid username or password. Please check your input.");
+                }
+              }
+          </script>
+          <script>
+              function resetForm() {
+                  document.getElementById("uname").value = "";
+                  document.getElementById("psw").value = "";
+                }
+            </script>
+        
+      </div>
+</body>
+</html>

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from pix2pix import image_edit
 from pydantic import BaseModel
-
+from complete import generate_stable_image
 
 class data(BaseModel):
     path: str
@@ -24,9 +24,13 @@ app.add_middleware(
 )
 
 
-@app.post("/pix2pix")
+@app.post("/modify")
 def pix2pix(inp: data):
     return image_edit(inp.path, inp.prompt_inp)
+
+@app.post("/new")
+def new(inp:str):
+    return generate_stable_image(inp)
 
 
 if __name__ == "__main__":

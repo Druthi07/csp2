@@ -20,16 +20,16 @@ def image_edit(image_path,prompt):
         return
 
     # Display the original image
-    image.save("./backend/results/"+str(num)+".jpg")
+    image.save("./backend/results/modify/"+str(num)+".jpg")
     
 
     # Perform image editing
     edited_image = pipe(prompt, image=image, num_inference_steps=20, image_guidance_scale=1).images[0]
 
     # Display the edited image
-    edited_image.save("./backend/results/"+str(num)+"_edited.jpg")
+    edited_image.save("./backend/results/modify/"+str(num)+"_edited.jpg")
     
     
-    return ["./backend/results/"+str(num)+".jpg","./backend/results/"+str(num)+"_edited.jpg"]
+    return ["./backend/results/modify/"+str(num)+".jpg","./backend/results/modify/"+str(num)+"_edited.jpg"]
 
 

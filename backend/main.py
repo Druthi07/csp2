@@ -11,6 +11,11 @@ class data(BaseModel):
 
     class Config:
         orm_mode = True
+class new_d(BaseModel):
+    prompt_inp: str
+
+    class Config:
+        orm_mode = True
 
 
 app = FastAPI()
@@ -29,8 +34,8 @@ def pix2pix(inp: data):
     return image_edit(inp.path, inp.prompt_inp)
 
 @app.post("/new")
-def new(inp:str):
-    return generate_stable_image(inp)
+def new(inp:new_d):
+    return generate_stable_image(inp.prompt_inp)
 
 
 if __name__ == "__main__":

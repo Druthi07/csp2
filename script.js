@@ -27,7 +27,7 @@ document.getElementById('modify').addEventListener('click', () => {
         console.log(res.data); document.getElementById('pixres').src = res.data[0]; document.getElementById('pixresedit').src = res.data[1]; })
 })
 document.getElementById('new').addEventListener('click', () => {
-    axios.post(`http://127.0.0.1:10000/new`, { inp: query_imput.value }, {
+    axios.post(`http://127.0.0.1:10000/new`, { prompt_inp: query_imput.value }, {
         mode: 'no-cors', headers: {
             'Access-Control-Allow-Origin': '*',
         }

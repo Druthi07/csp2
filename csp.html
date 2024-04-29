@@ -10,24 +10,22 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script src="https://kit.fontawesome.com/eee3060e93.js" crossorigin="anonymous"></script>
     <title>Global Design Crowdsourcing</title>
 </head>
 
 <body>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<script src="{{ url_for('static', filename='script.js') }}"></script>
-
     <div class="background-image">
         <div class="background-overlay">
             <div id="mySidenav" class="sidenav">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                <a style="color: black;"href="#"><b>About</b></a>
-                <a style="color: black;"href="login.html"><b>Login</b></a>
-                <a style="color: black;"href="signup.html"><b>SignUp</b></a>
-              </div>
-              
-            <i class="fa-solid fa-bars" onclick="openNav()" ></i>
+                <a style="color: black;" href="#"><b>About</b></a>
+                <a style="color: black;" href="login.html"><b>Login</b></a>
+                <a style="color: black;" href="signup.html"><b>SignUp</b></a>
+            </div>
+
+            <i class="fa-solid fa-bars" onclick="openNav()"></i>
             <div class="container">
                 <h1>Hello!<br> Ready to bring your vision to life?</h1>
                 <div class="option2">
@@ -35,33 +33,33 @@
                     <p class="disclaimer">
                         Your style. Your voice. Your crowd.
                     </p>
+                    <img id="pixres">
+                    <img id="pixresedit">
                     <div class="prompt-container">
                         <button id="prompt1" class="btn-prompt btn btn-dark" type="button">
                             Textile Embrodiery
                         </button>
                         <button id="prompt2" class="btn-prompt btn btn-dark" type="button">
-                            Textile Patterns 
+                            Textile Patterns
                         </button>
                         <button id="prompt3" class="btn-prompt btn btn-dark" type="button">
                             Textile Motifs
                         </button>
                     </div>
                 </div>
-                <form class="query_form" action="/submit_form" method="post" enctype="multipart/form-data">
+                <form class="query_form">
                     <div class="query-container">
                         <input type="text" id="query" class="form-control query" name="query"
                             placeholder="Ask me anything...">
-                            <label for="imageUpload">
-                                <i class="fa-solid fa-cloud-arrow-up"></i>
-                                <input type="file" id="imageUpload" style="display: none" name="imageUpload" accept="image/gif,image/jpeg,image/jpg,image/png">
-                              </label>
                     </div>
-                    <button type="submit" class="btn btn-success">Submit</button>
+                    <button type="button" id="new" class="btn btn-success">New</button>
+                    <button type="button" id="modify" class="btn btn-success">Modify</button>
                 </form>
             </div>
         </div>
-        <script src="script.js"></script>
     </div>
 </body>
+
+<script src='script.js'></script>
 
 </html>

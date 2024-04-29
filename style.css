@@ -13,6 +13,11 @@
     height: 100vh;
 
 }
+#pixres,#pixresedit{
+    width: 20vw;
+    height: 20vh;
+    z-index: 10;
+}
 .background-image {
     background-image: url('background4.jpg'); /* Replace with the path to your background image */
     background-size: cover;
